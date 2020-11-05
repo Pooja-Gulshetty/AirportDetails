@@ -1,5 +1,7 @@
 package com.airport.dto;
 
+import java.util.Objects;
+
 public class CountryDto {
   private final String id;
 
@@ -30,5 +32,25 @@ public class CountryDto {
 
   public String getContinent() {
     return continent;
+  }
+
+  @Override
+  public boolean equals(final Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    final CountryDto that = (CountryDto) o;
+    return Objects.equals(id, that.id) &&
+        Objects.equals(code, that.code) &&
+        Objects.equals(name, that.name) &&
+        Objects.equals(continent, that.continent);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id, code, name, continent);
   }
 }

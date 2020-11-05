@@ -29,7 +29,7 @@ public class Application {
   }
 
   @Bean
-  public DataStore loadData() {
+  public DataStore dataStore() {
 
     // TODO: Can be read all the files in parallel by running 3 threads
     LOGGER.info("Reading country data");
